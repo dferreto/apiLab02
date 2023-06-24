@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { Cabecera_factura } from "../entity/Cabecera_factura";
 import Cabecera_facturaController from "../controller/Cabecera_facturaController";
 
 

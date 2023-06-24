@@ -1,7 +1,7 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, } from "typeorm";
 import { Cliente } from "./Cliente";
 import { Vendedor } from "./Vendedor";
-import { Producto } from "./Producto";
+import { Detalle_factura } from "./Detalle_factura";
 
 
 @Entity()
@@ -13,10 +13,8 @@ export class Cabecera_factura{
     @ManyToOne(() => Cliente, (cliente) => cliente.cabecera_facturas)
     cliente: Cliente
     @ManyToOne(() => Vendedor, (vendedor) => vendedor.cabecera_facturas)
-    vendedor: Vendedor
-    @ManyToMany(() => Producto)
-    @JoinTable()
-    detalle: Producto[]
-    
+    vendedor: Vendedor 
+    @OneToMany(() => Detalle_factura, (detalle_factura) => detalle_factura.cabecera_factura)
+    detalle_factura: Detalle_factura[];
 }
 

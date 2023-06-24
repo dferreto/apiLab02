@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn, ManyToOne} from "typeorm";
+import { Column, Entity, PrimaryColumn, ManyToOne, OneToMany} from "typeorm";
 import { Proveedor } from "./Proveedor";
+import { Detalle_factura } from "./Detalle_factura";
 
 @Entity()
 export class Producto{
@@ -15,4 +16,6 @@ export class Producto{
     Stock_minimo_producto:number;
     @ManyToOne(() => Proveedor, (proveedor) => proveedor.productos)
     proveedor: Proveedor
+    @OneToMany(() => Detalle_factura, (detalle_factura) => detalle_factura.producto)
+    detalle_factura: Detalle_factura[];
 }
