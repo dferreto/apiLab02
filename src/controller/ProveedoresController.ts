@@ -5,6 +5,7 @@ import { Proveedor } from "../entity/Proveedor";
 
 
 class ProveedoresController{
+    
 
 static getProveedores = async (req:Request, resp:Response)=>{
 
@@ -58,3 +59,4 @@ static getProveedor = async (req: Request, resp: Response) => {
 }
 
 export default ProveedoresController;
+
